@@ -146,6 +146,7 @@ dependencies {
     compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
     runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
     compileOnly "org.appliedenergistics:appliedenergistics2:19.2.2-beta:api"
+    implementation "org.appliedenergistics:appliedenergistics2:19.2.2-beta"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
