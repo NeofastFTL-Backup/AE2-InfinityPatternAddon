@@ -1,0 +1,8 @@
+{
+  "item.infinitypattern.item_infinitypattern": "Infinite Encoded Pattern",
+  "item.infinitypattern.infinite_empty_pattern": "Infinite Empty Pattern",
+  "itemGroup.infinitypattern": "Infinity Pattern Addon",
+  "infinitypattern.guideme.title": "Infinity Pattern Guide",
+  "infinitypattern.guideme.introduction.title": "Infinite Empty Pattern",
+  "infinitypattern.guideme.introduction.text": "The Infinite Empty Pattern is a special item that can be used in the Pattern Encoding Terminal just like a normal Blank Pattern. However, it is never consumed during the encoding process, allowing for unlimited pattern creation with a single item."
+}

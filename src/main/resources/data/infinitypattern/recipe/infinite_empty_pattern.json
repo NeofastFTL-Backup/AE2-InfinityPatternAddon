@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "s": {
+      "item": "ae2:singularity"
+    },
+    "n": {
+      "item": "minecraft:nether_star"
+    },
+    "p": {
+      "item": "ae2:blank_pattern"
+    },
+    "e": {
+      "item": "ae2:engineering_processor"
+    }
+  },
+  "pattern": [
+    "sep",
+    "pnp",
+    "pes"
+  ],
+  "result": {
+    "count": 1,
+    "id": "infinitypattern:infinite_empty_pattern"
+  }
+}
