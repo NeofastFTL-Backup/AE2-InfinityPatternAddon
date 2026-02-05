@@ -6,6 +6,7 @@
   "refmap": "mixins.infinitypattern.refmap.json",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "MixinPatternEncodingTermMenu"
+    "MixinPatternEncodingTermMenu",
+    "MixinRestrictedInputSlot"
   ]
 }

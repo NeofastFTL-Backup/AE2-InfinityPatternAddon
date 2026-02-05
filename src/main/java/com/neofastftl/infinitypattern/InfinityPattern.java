@@ -1,10 +1,5 @@
 package com.neofastftl.infinitypattern;
 
-import appeng.api.ids.AEItemIds;
-import appeng.core.AppEng;
-import appeng.core.definitions.ItemDefinition;
-import appeng.items.materials.MaterialItem;
-import com.neofastftl.infinitypattern.item.ItemInfinityPattern;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -13,15 +8,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -32,15 +22,10 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static net.minecraft.world.item.Items.registerItem;
 
@@ -58,17 +43,16 @@ public class InfinityPattern
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
     // Creates a new food item with the id "examplemod:example_id", nutrition 1 and saturation 2
-
-    public static final DeferredItem<Item> ITEM_INFINITYPATTERN = ITEMS.register("item_infinitypattern",
-            () -> new ItemInfinityPattern(new Item.Properties()));
+    public static final DeferredItem<Item> ITEM_INFINITE_EMPTY_PATTERN = ITEMS.register("infinite_empty_pattern",
+            () -> new Item(new Item.Properties().stacksTo(1)));
 
     // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> INFINITY_PATTERN = CREATIVE_MODE_TABS.register("infinitypattern", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.infinitypattern")) //The language key for the title of your CreativeModeTab
             .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> ITEM_INFINITYPATTERN.get().getDefaultInstance())
+            .icon(() -> ITEM_INFINITE_EMPTY_PATTERN.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
-                output.accept(ITEM_INFINITYPATTERN.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
+                output.accept(ITEM_INFINITE_EMPTY_PATTERN.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
             }).build());
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.

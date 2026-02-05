@@ -18,9 +18,10 @@ public class IFPATMixinPlugin implements IMixinConfigPlugin {
 
     private static final Object2ObjectMap<String, String> MOD_MIXINS = new Object2ObjectOpenHashMap<>(
             new String[] {
-                    "com.neofastftl.infinitypattern.mixins.MixinPatternEncodingTermMenu"
+                    "com.neofastftl.infinitypattern.mixins.MixinPatternEncodingTermMenu",
+                    "com.neofastftl.infinitypattern.mixins.MixinRestrictedInputSlot"
             },
-            new String[] {"infinitypattern", "infinitypattern", "infinitypattern", "infinitypattern", "infinitypattern"},
+            new String[] {"infinitypattern", "infinitypattern"},
             Object2ObjectOpenHashMap.DEFAULT_LOAD_FACTOR);
 
     @Override
