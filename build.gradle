@@ -74,6 +74,8 @@ neoForge {
     runs {
         client {
             client()
+            systemProperty 'guideme.infinitypattern.book.sources',
+                    file("src/main/resources/assets/infinitypattern/ifpat_guidebook/").absolutePath
 
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
@@ -147,6 +149,7 @@ dependencies {
     runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
     compileOnly "org.appliedenergistics:appliedenergistics2:19.2.2-beta:api"
     implementation "org.appliedenergistics:appliedenergistics2:19.2.2-beta"
+    implementation "org.appliedenergistics:guideme:${guide_me_version}"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

@@ -2,6 +2,8 @@
 navigation:
   title: Infinity Pattern Introduction
   position: 70
+item_ids:
+- infinitypattern:infinite_empty_pattern
 ---
 
 # Infinity Pattern!

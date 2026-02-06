@@ -1,7 +1,7 @@
 package com.neofastftl.infinitypattern.mixins;
 
 import appeng.parts.encoding.PatternEncodingLogic;
-import com.neofastftl.infinitypattern.InfinityPattern;
+import com.neofastftl.infinitypattern.registries.ModItems;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -35,16 +35,12 @@ public abstract class MixinPatternEncodingTermMenu extends MEStorageMenu {
     @Inject(method = "encode", at = @At("HEAD"))
     private void onEncodePatternHead(CallbackInfo ci) {
         var blank = this.blankPatternSlot.getItem();
-        if (blank.is(InfinityPattern.ITEM_INFINITE_EMPTY_PATTERN.get())) {
-            wasInfinitePattern = true;
-        } else {
-            wasInfinitePattern = false;
-        }
+        wasInfinitePattern = blank.is(ModItems.ITEM_INFINITE_EMPTY_PATTERN.get());
     }
 
     @Inject(method = "isPattern", at = @At("HEAD"), cancellable = true)
     private void onIsPattern(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
-        if (stack.is(InfinityPattern.ITEM_INFINITE_EMPTY_PATTERN.get())) {
+        if (stack.is(ModItems.ITEM_INFINITE_EMPTY_PATTERN.get())) {
             cir.setReturnValue(true);
         }
     }
@@ -54,8 +50,8 @@ public abstract class MixinPatternEncodingTermMenu extends MEStorageMenu {
         if (wasInfinitePattern) {
             var blank = this.blankPatternSlot.getItem();
             if (blank.isEmpty()) {
-                this.blankPatternSlot.set(InfinityPattern.ITEM_INFINITE_EMPTY_PATTERN.get().getDefaultInstance());
-            } else if (blank.is(InfinityPattern.ITEM_INFINITE_EMPTY_PATTERN.get())) {
+                this.blankPatternSlot.set(ModItems.ITEM_INFINITE_EMPTY_PATTERN.get().getDefaultInstance());
+            } else if (blank.is(ModItems.ITEM_INFINITE_EMPTY_PATTERN.get())) {
                 blank.setCount(1);
             }
             wasInfinitePattern = false;

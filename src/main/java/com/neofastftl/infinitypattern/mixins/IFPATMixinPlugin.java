@@ -26,7 +26,6 @@ public class IFPATMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public void onLoad(String s) {
-        String[] str;
     }
 
     @Override
