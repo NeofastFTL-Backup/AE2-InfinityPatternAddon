@@ -10,9 +10,9 @@ import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 
-import net.neoforged.fml.ModList;
-import net.neoforged.fml.loading.LoadingModList;
-import net.neoforged.fml.loading.moddiscovery.ModInfo;
+import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.loading.LoadingModList;
+import net.minecraftforge.forgespi.language.IModInfo;
 
 public class IFPATMixinPlugin implements IMixinConfigPlugin {
 
@@ -55,7 +55,7 @@ public class IFPATMixinPlugin implements IMixinConfigPlugin {
     private static boolean isModLoaded(String modId) {
         if (ModList.get() == null) {
             return LoadingModList.get().getMods().stream()
-                    .map(ModInfo::getModId)
+                    .map(IModInfo::getModId)
                     .anyMatch(modId::equals);
         } else {
             return ModList.get().isLoaded(modId);

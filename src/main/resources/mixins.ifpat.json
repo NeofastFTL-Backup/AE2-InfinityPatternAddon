@@ -4,7 +4,7 @@
   "package": "com.neofastftl.infinitypattern.mixins",
   "plugin": "com.neofastftl.infinitypattern.mixins.IFPATMixinPlugin",
   "refmap": "mixins.infinitypattern.refmap.json",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_17",
   "mixins": [
     "MixinPatternEncodingTermMenu",
     "MixinRestrictedInputSlot"

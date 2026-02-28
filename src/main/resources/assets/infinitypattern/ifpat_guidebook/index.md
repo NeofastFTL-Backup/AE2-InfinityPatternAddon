@@ -14,4 +14,4 @@ allowing for unlimited pattern creation with a single item!
 
 Found an issue? Missing a feature?
 Please report it here:
-[Infinity Pattern GitHub](https://github.com/NeofastFTL-Backup/AE2-InfinityPatternAddon)
+[Infinity Pattern GitHub](https://github.com/NeofastFTL-Dev/AE2-InfinityPatternAddon)
