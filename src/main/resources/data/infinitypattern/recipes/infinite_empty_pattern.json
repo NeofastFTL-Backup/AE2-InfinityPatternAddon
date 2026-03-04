@@ -2,16 +2,16 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "s": {
-      "item": "ae2:singularity"
+      "item": "appliedenergistics2:singularity"
     },
     "n": {
       "item": "minecraft:nether_star"
     },
     "p": {
-      "item": "ae2:blank_pattern"
+      "item": "appliedenergistics2:blank_pattern"
     },
     "e": {
-      "item": "ae2:engineering_processor"
+      "item": "appliedenergistics2:engineering_processor"
     }
   },
   "pattern": [

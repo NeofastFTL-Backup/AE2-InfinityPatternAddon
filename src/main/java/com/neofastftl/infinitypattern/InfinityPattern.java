@@ -1,6 +1,5 @@
 package com.neofastftl.infinitypattern;
 
-import com.neofastftl.infinitypattern.guidebook.IFPATGuide;
 import com.neofastftl.infinitypattern.registries.ModItems;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -13,6 +12,5 @@ public class InfinityPattern {
     public InfinityPattern() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModItems.ITEMS.register(modEventBus);
-        IFPATGuide.init();
     }
 }

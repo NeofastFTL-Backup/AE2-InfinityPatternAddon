@@ -5,16 +5,16 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
-import appeng.menu.me.items.PatternEncodingTermMenu;
-import appeng.menu.slot.RestrictedInputSlot;
+import appeng.container.me.items.PatternTermContainer;
+import appeng.container.slot.RestrictedInputSlot;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(value = PatternEncodingTermMenu.class, remap = false)
+@Mixin(value = PatternTermContainer.class, remap = false)
 public abstract class MixinPatternEncodingTermMenu {
 
     @Final
@@ -28,13 +28,13 @@ public abstract class MixinPatternEncodingTermMenu {
 
     @Inject(method = "encode", at = @At("HEAD"))
     private void onEncodePatternHead(CallbackInfo ci) {
-        var blank = this.blankPatternSlot.getItem();
-        wasInfinitePattern = blank.is(ModItems.ITEM_INFINITE_EMPTY_PATTERN.get());
+        ItemStack blank = this.blankPatternSlot.getItem();
+        wasInfinitePattern = blank.getItem() == ModItems.ITEM_INFINITE_EMPTY_PATTERN.get();
     }
 
     @Inject(method = "isPattern", at = @At("HEAD"), cancellable = true)
     private void onIsPattern(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
-        if (stack.is(ModItems.ITEM_INFINITE_EMPTY_PATTERN.get())) {
+        if (stack.getItem() == ModItems.ITEM_INFINITE_EMPTY_PATTERN.get()) {
             cir.setReturnValue(true);
         }
     }
@@ -42,10 +42,10 @@ public abstract class MixinPatternEncodingTermMenu {
     @Inject(method = "encode", at = @At("RETURN"))
     private void onEncodePatternReturn(CallbackInfo ci) {
         if (wasInfinitePattern) {
-            var blank = this.blankPatternSlot.getItem();
+            ItemStack blank = this.blankPatternSlot.getItem();
             if (blank.isEmpty()) {
                 this.blankPatternSlot.set(ModItems.ITEM_INFINITE_EMPTY_PATTERN.get().getDefaultInstance());
-            } else if (blank.is(ModItems.ITEM_INFINITE_EMPTY_PATTERN.get())) {
+            } else if (blank.getItem() == ModItems.ITEM_INFINITE_EMPTY_PATTERN.get()) {
                 blank.setCount(1);
             }
             wasInfinitePattern = false;
