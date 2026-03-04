@@ -11,5 +11,5 @@ public class ModItems {
             DeferredRegister.create(ForgeRegistries.ITEMS, InfinityPattern.MODID);
 
     public static final RegistryObject<Item> ITEM_INFINITE_EMPTY_PATTERN = ITEMS.register("infinite_empty_pattern",
-            () -> new Item(new Item.Properties().stacksTo(1)));
+            () -> new Item(new Item.Properties().stacksTo(1).tab(ModCreativeTabs.INFINITY_PATTERN)));
 }

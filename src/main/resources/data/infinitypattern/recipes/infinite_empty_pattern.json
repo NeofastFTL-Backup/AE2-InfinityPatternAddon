@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "s": {
       "item": "ae2:singularity"
@@ -22,6 +21,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "infinitypattern:infinite_empty_pattern"
+    "item": "infinitypattern:infinite_empty_pattern"
   }
 }

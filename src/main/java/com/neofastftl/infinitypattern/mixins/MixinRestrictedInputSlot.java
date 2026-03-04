@@ -1,6 +1,5 @@
 package com.neofastftl.infinitypattern.mixins;
 
-import appeng.menu.slot.AppEngSlot;
 import appeng.menu.slot.RestrictedInputSlot;
 import com.neofastftl.infinitypattern.registries.ModItems;
 import net.minecraft.world.item.ItemStack;

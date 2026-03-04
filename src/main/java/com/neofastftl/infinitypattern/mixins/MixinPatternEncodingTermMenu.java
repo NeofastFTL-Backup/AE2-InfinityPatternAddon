@@ -1,16 +1,10 @@
 package com.neofastftl.infinitypattern.mixins;
 
-import appeng.parts.encoding.PatternEncodingLogic;
 import com.neofastftl.infinitypattern.registries.ModItems;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.MenuType;
-
-import appeng.api.storage.ITerminalHost;
-import appeng.menu.me.common.MEStorageMenu;
 import appeng.menu.me.items.PatternEncodingTermMenu;
 import appeng.menu.slot.RestrictedInputSlot;
 import org.spongepowered.asm.mixin.injection.At;
@@ -21,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = PatternEncodingTermMenu.class, remap = false)
-public abstract class MixinPatternEncodingTermMenu extends MEStorageMenu {
+public abstract class MixinPatternEncodingTermMenu {
 
     @Final
     @Shadow
@@ -58,7 +52,4 @@ public abstract class MixinPatternEncodingTermMenu extends MEStorageMenu {
         }
     }
 
-    public MixinPatternEncodingTermMenu(MenuType<?> menuType, int id, Inventory ip, ITerminalHost host, PatternEncodingLogic encodingLogic) {
-        super(menuType, id, ip, host);
-    }
 }
