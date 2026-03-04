@@ -1,64 +1,42 @@
 package com.neofastftl.infinitypattern.mixins;
 
-import java.util.List;
-import java.util.Set;
+import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
+import org.spongepowered.asm.launch.MixinBootstrap;
+import org.spongepowered.asm.mixin.Mixins;
 
-import org.objectweb.asm.tree.ClassNode;
-import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
-import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
+import java.util.Map;
 
-import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
-import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
+@IFMLLoadingPlugin.Name("IFPATMixinLoader")
+@IFMLLoadingPlugin.MCVersion("1.12.2")
+@IFMLLoadingPlugin.TransformerExclusions({"com.neofastftl.infinitypattern.mixins.IFPATMixinPlugin"})
+public class IFPATMixinPlugin implements IFMLLoadingPlugin {
 
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.loading.LoadingModList;
-import net.minecraftforge.forgespi.language.IModInfo;
-
-public class IFPATMixinPlugin implements IMixinConfigPlugin {
-
-    private static final Object2ObjectMap<String, String> MOD_MIXINS = new Object2ObjectOpenHashMap<>(
-            new String[] {
-                    "com.neofastftl.infinitypattern.mixins.MixinPatternEncodingTermMenu",
-                    "com.neofastftl.infinitypattern.mixins.MixinRestrictedInputSlot"
-            },
-            new String[] {"infinitypattern", "infinitypattern"},
-            Object2ObjectOpenHashMap.DEFAULT_LOAD_FACTOR);
-
-    @Override
-    public void onLoad(String s) {
+    public IFPATMixinPlugin() {
+        MixinBootstrap.init();
+        Mixins.addConfiguration("mixins.ifpat.json");
     }
 
     @Override
-    public String getRefMapperConfig() {
+    public String[] getASMTransformerClass() {
+        return new String[0];
+    }
+
+    @Override
+    public String getModContainerClass() {
         return null;
     }
 
     @Override
-    public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        return !MOD_MIXINS.containsKey(mixinClassName) || isModLoaded(MOD_MIXINS.get(mixinClassName));
-    }
-
-    @Override
-    public void acceptTargets(Set<String> set, Set<String> set1) {}
-
-    @Override
-    public List<String> getMixins() {
+    public String getSetupClass() {
         return null;
     }
 
     @Override
-    public void preApply(String s, ClassNode classNode, String s1, IMixinInfo iMixinInfo) {}
+    public void injectData(Map<String, Object> data) {
+    }
 
     @Override
-    public void postApply(String s, ClassNode classNode, String s1, IMixinInfo iMixinInfo) {}
-
-    private static boolean isModLoaded(String modId) {
-        if (ModList.get() == null) {
-            return LoadingModList.get().getMods().stream()
-                    .map(IModInfo::getModId)
-                    .anyMatch(modId::equals);
-        } else {
-            return ModList.get().isLoaded(modId);
-        }
+    public String getAccessTransformerClass() {
+        return null;
     }
 }

@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "item/generated",
   "textures": {
-    "layer0": "infinitypattern:item/infinite_empty_pattern"
+    "layer0": "appliedenergistics2:items/material_blank_pattern"
   }
 }

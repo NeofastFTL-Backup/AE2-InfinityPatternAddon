@@ -1,0 +1,29 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "sep",
+    "pnp",
+    "pes"
+  ],
+  "key": {
+    "s": {
+      "item": "appliedenergistics2:material",
+      "data": 47
+    },
+    "n": {
+      "item": "minecraft:nether_star"
+    },
+    "p": {
+      "item": "appliedenergistics2:material",
+      "data": 52
+    },
+    "e": {
+      "item": "appliedenergistics2:material",
+      "data": 24
+    }
+  },
+  "result": {
+    "item": "infinitypattern:infinite_empty_pattern",
+    "count": 1
+  }
+}

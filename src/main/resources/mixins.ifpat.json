@@ -1,8 +1,7 @@
 {
   "required": true,
-  "minVersion": "0.8",
+  "minVersion": "0.7.11",
   "package": "com.neofastftl.infinitypattern.mixins",
-  "plugin": "com.neofastftl.infinitypattern.mixins.IFPATMixinPlugin",
   "refmap": "mixins.infinitypattern.refmap.json",
   "compatibilityLevel": "JAVA_8",
   "mixins": [

@@ -1,16 +1,10 @@
 package com.neofastftl.infinitypattern;
 
-import com.neofastftl.infinitypattern.registries.ModItems;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod(InfinityPattern.MODID)
+@Mod(modid = InfinityPattern.MODID, name = InfinityPattern.NAME, version = InfinityPattern.VERSION, acceptedMinecraftVersions = "[1.12.2]")
 public class InfinityPattern {
     public static final String MODID = "infinitypattern";
-
-    public InfinityPattern() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        ModItems.ITEMS.register(modEventBus);
-    }
+    public static final String NAME = "Applied Infinity Pattern";
+    public static final String VERSION = "1.0-Forge-1.12.2";
 }
